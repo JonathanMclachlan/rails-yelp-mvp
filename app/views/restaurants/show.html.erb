@@ -19,7 +19,19 @@
     </div>
   <% end %>
 
+  <br>
+
+  <h4>Add a review for <%= @restaurant.name %></h4>
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.input :rating, as: :select, collection: [0, 1, 2, 3, 4, 5], prompt: "Please select your rating from 0 (terrible) to 5 (superdupergreat)", label: "Your rating" %>
+    <%= f.input :content, label: "Your feedback" %>
+    <%= f.submit "Submit your review" %>
+  <% end %>
+
+  <br>
   <%= link_to "Home", restaurants_path %>
-  <%= link_to "Add review", new_restaurant_review_path(@restaurant) %>
+  <br>
+  <br>
+  <%# <%= link_to "Add review", new_restaurant_review_path(@restaurant) %>
 
 </div>
